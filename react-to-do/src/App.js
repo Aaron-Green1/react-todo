@@ -26,6 +26,13 @@ class App extends Component {
     this.setState({todos: [...this.state.todos, newTodo], newTodoDescription: ''});
   }
 
+  deleteTodo(e) {
+    this.setState({todos: this.state.todos.filter(function(todos) {
+        return todos !== e.target.value
+      })
+    })
+  }
+
   toggleComplete(index) {
     const todos = this.state.todos.slice();
     const todo = todos[index];
